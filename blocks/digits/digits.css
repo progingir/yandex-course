@@ -1,0 +1,5 @@
+.digits {
+    margin: 100px auto;
+    display: flex;
+    flex-direction: column; 
+}
