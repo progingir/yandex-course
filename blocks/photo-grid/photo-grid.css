@@ -1,5 +1,3 @@
-@import url(./__item/photo-grid__item.css);
-
 .photo-grid {
   /* позиционирование */
   max-width: 1184px;

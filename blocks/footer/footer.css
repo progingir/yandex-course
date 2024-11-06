@@ -1,8 +1,3 @@
-@import url(./__copyright/footer__copyright.css);
-@import url(./__link/footer__link.css);
-@import url(./__links/footer__links.css);
-@import url(./__list-item/footer__list-item.css);
-
 .footer {
   /* отображение */
   display: flex;
