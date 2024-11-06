@@ -1,0 +1,32 @@
+.intro__text {
+  /* размер */
+  max-width: 690px;
+
+  /* отступы */
+  margin-top: 40px;
+  margin-bottom: 32px;
+
+  /* текст */
+  color: #fff;
+  font-style:  normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.65;
+}
+
+@media screen and (max-width: 1023px) {
+  .intro__text {
+    max-width: 720px;
+    margin: 0 auto;
+    margin-top: 40px;
+    margin-bottom: 32px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .intro__text {
+    max-width: 288px;
+    margin-top: 40px;
+    margin-bottom: 32px;
+  }
+}

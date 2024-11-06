@@ -1,0 +1,22 @@
+.lead__subtitle {
+  /* текст */
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 1.2;
+  font-style: normal;
+  color: #fff;
+
+  /* позиционирование */
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 32px;
+  max-width: 640px;
+}
+
+@media screen and (max-width: 767px) {
+  .lead__subtitle {
+    margin-top: 16px;
+    font-size: 16px;
+    line-height: 1.25;
+  }  
+}

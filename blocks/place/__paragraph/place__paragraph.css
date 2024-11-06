@@ -1,0 +1,21 @@
+.place__paragraph {
+  /* текст */
+  color: #fff;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.7;
+
+  /* отступы */
+  margin: 0;
+  margin-bottom: 24px;
+}
+
+
+@media screen and (max-width: 1023px) {
+  .place__paragraph {
+  font-size: 16px;
+  line-height: 1.6;
+  padding: 0 16px;
+  }
+}

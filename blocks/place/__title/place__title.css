@@ -1,0 +1,30 @@
+.place__title {
+  /* текст */
+  font-weight: 900;
+  font-size: 72px;
+  line-height: 1.1;
+  font-style: normal;
+  color: #fff;
+
+  /* выравнивание и размер */
+  max-width: 460px;
+  margin: 0;
+  align-self: end;
+}
+
+
+@media screen and (max-width: 1023px) {
+  .place__title {
+    max-width: 440px;
+    font-size: 42px;
+    line-height: 1.1;
+ }
+}
+
+@media screen and (max-width: 767px) {
+  .place__title {
+    font-size: 32px;
+    line-height: 1.1;
+    padding-left: 16px;
+  }
+}

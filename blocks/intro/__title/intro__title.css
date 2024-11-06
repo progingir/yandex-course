@@ -1,0 +1,18 @@
+.intro__title {
+  /* отступы */
+  margin: 0;
+
+  /* текст */
+  color: #fff;
+  font-style:  normal;
+  font-weight: 900;
+  font-size: 54px;
+  line-height: 1.075;
+}
+
+@media screen and (max-width: 767px) {
+  .intro__title {
+    font-size: 32px;
+    line-height: 1.1;
+  }
+}

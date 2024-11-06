@@ -1,0 +1,13 @@
+.intro__list {
+  /* отступы */
+  padding: 0;
+  margin: 0;
+
+  /* список */
+  list-style-type: none;
+
+  /* текст */
+  font-weight: 400;
+  color: #fff; 
+  line-height: 1.65;
+}
