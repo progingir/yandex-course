@@ -26,10 +26,10 @@ function toggleModal(modal, isOpen) {
     modal.classList.toggle("popup_is-opened", isOpen);
 }
 
-[profilePopup, cardPopup, imagePopup].forEach(modal => modal.classList.add("popup_is-animated"));
-
-//обработчик
-closeImageModalButton.addEventListener("click", () => toggleModal(imagePopup, false));
+function initializeModals() {
+    [profilePopup, cardPopup, imagePopup].forEach(modal => modal.classList.add("popup_is-animated"));
+    closeImageModalButton.addEventListener("click", () => toggleModal(imagePopup, false));
+}
 
 // 4)функция создания карточки
 function createCard({ name, link }) {
@@ -47,12 +47,7 @@ function createCard({ name, link }) {
 //события для карточки
 function attachCardEventHandlers(cardElement, name, link) {
     const imageElement = cardElement.querySelector(".card__image");
-    imageElement.addEventListener("click", () => {
-        modalImage.src = link;
-        modalImage.alt = name;
-        modalCaption.textContent = name;
-        toggleModal(imagePopup, true);
-    });
+    imageElement.addEventListener("click", () => openImageModal(name, link));
 
     const likeButton = cardElement.querySelector(".card__like-button");
     likeButton.addEventListener("click", () => likeButton.classList.toggle("card__like-button_is-active"));
@@ -61,13 +56,28 @@ function attachCardEventHandlers(cardElement, name, link) {
     deleteButton.addEventListener("click", () => deleteButton.closest(".card").remove());
 }
 
-//инициализация карточек
-const cardElements = initialCards.map(createCard);
-cardContainer.append(...cardElements);
+function openImageModal(name, link) {
+    modalImage.src = link;
+    modalImage.alt = name;
+    modalCaption.textContent = name;
+    toggleModal(imagePopup, true);
+}
 
-//редактирования профиля
-const editProfileButton = document.querySelector(".profile__edit-button");
-const closeProfileModalButton = profilePopup.querySelector(".popup__close");
+//инициализация карточек
+function initializeCards() {
+    const cardElements = initialCards.map(createCard);
+    cardContainer.append(...cardElements);
+}
+
+//редактирование профиля
+function initializeProfileEditing() {
+    const editProfileButton = document.querySelector(".profile__edit-button");
+    const closeProfileModalButton = profilePopup.querySelector(".popup__close");
+
+    editProfileButton.addEventListener("click", populateProfileForm);
+    closeProfileModalButton.addEventListener("click", () => toggleModal(profilePopup, false));
+    profileForm.addEventListener("submit", handleProfileFormSubmit);
+}
 
 function populateProfileForm() {
     nameInput.value = profileTitleElement.textContent;
@@ -82,13 +92,15 @@ function handleProfileFormSubmit(event) {
     toggleModal(profilePopup, false);
 }
 
-editProfileButton.addEventListener("click", populateProfileForm);
-closeProfileModalButton.addEventListener("click", () => toggleModal(profilePopup, false));
-profileForm.addEventListener("submit", handleProfileFormSubmit);
+//добавление карточек
+function initializeCardAdding() {
+    const addCardButton = document.querySelector(".profile__add-button");
+    const closeCardModalButton = cardPopup.querySelector(".popup__close");
 
-//добавления карточек
-const addCardButton = document.querySelector(".profile__add-button");
-const closeCardModalButton = cardPopup.querySelector(".popup__close");
+    addCardButton.addEventListener("click", openNewCardModal);
+    closeCardModalButton.addEventListener("click", () => toggleModal(cardPopup, false));
+    cardForm.addEventListener("submit", handleCardFormSubmit);
+}
 
 function openNewCardModal() {
     cardNameInput.value = "";
@@ -103,6 +115,11 @@ function handleCardFormSubmit(event) {
     toggleModal(cardPopup, false);
 }
 
-addCardButton.addEventListener("click", openNewCardModal);
-closeCardModalButton.addEventListener("click", () => toggleModal(cardPopup, false));
-cardForm.addEventListener("submit", handleCardFormSubmit);
+function initialize() {
+    initializeModals();
+    initializeCards();
+    initializeProfileEditing();
+    initializeCardAdding();
+}
+
+initialize();
