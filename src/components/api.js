@@ -2,21 +2,6 @@ const token = '242e9a32-98db-46bf-ab6a-648954214a8a';
 const cohortId = 'apf-cohort-202';
 const baseUrl = `https://nomoreparties.co/v1/${cohortId}`;
 
-function fetchData(url) {
-  return fetch(url, {
-    method: 'GET',
-    headers: {
-      authorization: token,
-    },
-  })
-  .then(res => {
-    if (!res.ok) {
-      return Promise.reject(`Ошибка: ${res.status}`);
-    }
-    return res.json();
-  })
-}
-
 export function getUserInfo() {
   return fetch(`${baseUrl}/users/me`, {
     method: 'GET',

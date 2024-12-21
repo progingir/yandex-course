@@ -10,6 +10,24 @@
   margin: 0 29px 0 0;
 }
 
+.profile__image::after {
+  content: '';
+  transition: all 400ms ease-in-out;
+  width: 100%;
+  display: block;
+  background-position: bottom;
+  background-size: 26px;
+  background-repeat: no-repeat;
+  background-image: url(../../../images/pen.svg);
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.profile__image:hover.profile__image::after {
+  background-position: center;
+  height: 100%;
+  cursor: pointer;
+}
+
 @media screen and (max-width: 740px) {
   .profile__image {
     margin: 0 10px 0 0;
